@@ -75,6 +75,15 @@ while true; do
   esac
 done
 
+while true; do
+  read -p "Do you already have an identity (y/n) " answer
+  case $answer in
+    [yY]*) read -p "Identity location: " identity_location && identity_creation="no" ; break;;
+    [nN]*) identity_creation="yes" ; break;;
+    *) echo "Please answer 'yes' or 'no'";;
+  esac
+done
+
 # Prepare Identity
 
 if [[ identity_creation == "yes" ]]; then
